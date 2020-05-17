@@ -14,4 +14,12 @@ public class TodoService {
 	public List<Todo> RetrieveTodos() {
 		return todos;
 	}
+	
+	public void addTodo(String todo){
+		todos.add(new Todo(todo));
+	}
+	
+	public void removeTodo(String todo){
+		todos.remove(new Todo(todo));
+	}
 }

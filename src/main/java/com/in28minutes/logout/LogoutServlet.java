@@ -1,4 +1,4 @@
-package com.in28minutes.login;
+package com.in28minutes.logout;
 
 import java.io.IOException;
 
@@ -29,29 +29,13 @@ import javax.servlet.http.HttpServletResponse;
 //3. doGet(HttpServletRequest request, HttpServletResponse response)
 //4. How is the response created?
 
-@WebServlet(name="login", urlPatterns = "/login.do")
-public class LoginServlet extends HttpServlet {
+@WebServlet(name="logout", urlPatterns = "/logout.do")
+public class LogoutServlet extends HttpServlet {
 	
-	private LoginService userValidatiobService = new LoginService();
-	
-	private static final long serialVersionUID = 1L;
-	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException{
-		String name = req.getParameter("user");
-		boolean isUserValid = userValidatiobService.isUserValid(req.getParameter("user"), req.getParameter("pwd"));
-		
-		if(isUserValid){
-			req.getSession().setAttribute("name", name);
-			res.sendRedirect("list-todo.do");
-		}else{
-			req.setAttribute("errorMensage", "User Invalid");
-			req.getRequestDispatcher("/views/login.jsp").forward(req, res);
-		}
-	}
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException{
-		
-			req.getRequestDispatcher("/views/login.jsp").forward(req, res);
+		req.getSession().invalidate();
+		req.getRequestDispatcher("/views/login.jsp").forward(req, res);
 	}
 
 }
