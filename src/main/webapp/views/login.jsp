@@ -36,14 +36,19 @@
 
 	</nav>
 
-	<div class="container">
+	<div class="form-group ccol-md-4 col-md-offset-4">
 		<p><font color="red">${errorMensage}</font></p>
-		<form method="post" action="/login.do">
-			Username:
-			<input type="text" name="user">
-			Password:
-			<input type="password" name="pwd">
-			<input type="submit" value="OK">
+		<form method="post" action="/login.do" style="width: 30%">
+			<div Style="padding-bottom: 15px">
+				Username:
+				<input class="form-control" id="exampleInputEmail1" type="text" name="user">
+			</div>
+			<div Style="padding-bottom: 15px">
+				Password: 
+				<input class="form-control" id="exampleInputEmail1" type="password" name="pwd">
+			</div>
+			
+			<input class="btn btn-success btn-lg" style="margin-left: 50%" type="submit" value="OK">
 		</form>
 		
 	</div>
